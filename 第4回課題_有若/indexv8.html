@@ -25,9 +25,9 @@
 
         <nav class="headerham">
             <ul id="header-menu">
-                <li class="header-menusub"><a href="">我が社について</a></li>
-                <li class="header-menusub"><a href="">サービス</a></li>
-                <li class="header-menusub"><a href="">お問い合わせ</a></li>
+                <li class="header-menusub"><a href="#wa">我が社について</a></li>
+                <li class="header-menusub"><a href="#sa">サービス</a></li>
+                <li class="header-menusub"><a href="#oto">お問い合わせ</a></li>
             </ul>
         </nav>
         <div id="hamburger" class="hamburger">
@@ -61,7 +61,7 @@
             <p class="dtext" id="appt">app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発app開発</p>
         </div>
 
-        <form method="get" action="./thenk.html">
+        <form method="get" action="./thank.html">
             <div class="form">
                 <div>
                     <p class="form_title" id="oto">お問い合わせ</p>
@@ -124,8 +124,9 @@
                         <p class="want">*任意</p>
                     </div>
                     <P>
-                        <input class="submit" type="tel" name="tel" placeholder="例)09012345678">
+                        <input class="submit" type="text" name="tel" id="tel" placeholder="例)09012345678"  pattern="^[0-9]+$" maxlength="11">
                     </P>
+                    <p id="telError" style="color:red; display:none;">電話番号は数字のみ、11桁で入力してください。</p>
                     </div>
 
                 <div>

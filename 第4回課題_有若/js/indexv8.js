@@ -122,6 +122,31 @@ $(function(){
     }
   })
 
+  document.querySelector('form').addEventListener('submit', function(event) {
+    var telInput = document.getElementById('tel');
+    var telValue = telInput.value.trim();
+    var telError = document.getElementById('telError');
+    
+    // 数値チェック
+    if (!/^\d+$/.test(telValue)) {
+        telError.textContent = "電話番号は数字のみで入力してください。";
+        telError.style.display = "block";
+        event.preventDefault(); // フォーム送信を停止
+        return false;
+    }
+
+    // 桁数チェック
+    if (telValue.length !== 10 && telValue.length !== 11) {
+        telError.textContent = "電話番号は10桁または11桁で入力してください。";
+        telError.style.display = "block";
+        event.preventDefault(); // フォーム送信を停止
+        return false;
+    }
+
+    // エラーメッセージが表示されていなければ、エラーメッセージを非表示にする
+    telError.style.display = "none";
+});
+ 
 
 
   
