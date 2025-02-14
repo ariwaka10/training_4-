@@ -105,11 +105,56 @@ $(function(){
 
 
 
+/* // ハンバーガーアイコンのクリックイベントを設定
+document.querySelector('.hamburger').addEventListener('click', function() {
+  // ハンバーガーアイコンとメニューのクラスをトグル
+  this.classList.toggle('open');
+  document.querySelector('.headerham').classList.toggle('open');
+  document.querySelector('#header-menu').classList.toggle('open');
+});
+
+// メニュー項目がクリックされた場合にメニューを閉じる
+const menuLinks = document.querySelectorAll('.header-menusub a');
+menuLinks.forEach(link => {
+  link.addEventListener('click', function() {
+      // メニューが閉じる
+      document.querySelector('.headerham').classList.remove('open');
+      document.querySelector('#header-menu').classList.remove('open');
+      document.querySelector('.hamburger').classList.remove('open');
+  });
+}); */
 
 
 
 
-  const menu = document.querySelector('#header-menu')
+const menu = document.querySelector('#header-menu');
+const btn = document.querySelector('#hamburger');
+
+// ハンバーガーメニューの開閉
+btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+    if (menu.classList.contains("open")) {
+        menu.style.height = menu.scrollHeight + 'px';
+    } else {
+        menu.style.height = "0";
+    }
+});
+
+// メニュー項目がクリックされた場合にメニューを閉じる
+const menuItems = document.querySelectorAll('.header-menusub a');
+menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+        // メニューを閉じる
+        menu.style.height = "0";
+        btn.classList.remove('open');
+        menu.classList.remove('open');
+    });
+});
+
+
+
+/*   const menu = document.querySelector('#header-menu')
   const btn = document.querySelector('#hamburger')
   
   btn.addEventListener('click', () => {
@@ -122,21 +167,37 @@ $(function(){
     }
   })
 
+  メニュー項目がクリックされた場合にメニューを閉じる
+  const clause = document.querySelectorAll('header-menusub');
+  clause.forEach(link => {
+  link.addEventListener('click', function() {
+      // メニューが閉じる
+      document.querySelector('hamburger').classList.remove('open');
+      document.querySelector('hamburger').classList.remove('open');
+      document.querySelector('hamburger').classList.remove('open');
+  });
+});  */
+
   document.querySelector('form').addEventListener('submit', function(event) {
     var telInput = document.getElementById('tel');
     var telValue = telInput.value.trim();
     var telError = document.getElementById('telError');
     
-    // 数値チェック
-    if (!/^\d+$/.test(telValue)) {
+  document.addEventListener("DOMContentLoaded", function() {
+    var form = document.querySelector("form");
+    if (!form) return;
+  }) 
+    // フォームがない場合は何もせず処理を終了
+  // 数値チェック
+/*     if (!/^\d+$/.test(telValue)) {
         telError.textContent = "電話番号は数字のみで入力してください。";
         telError.style.display = "block";
         event.preventDefault(); // フォーム送信を停止
         return false;
-    }
+    } */
 
     // 桁数チェック
-    if (telValue.length !== 10 && telValue.length !== 11) {
+    if (telValue.length !== 10 && telValue.length !== 11 && telValue.length !== 0) {
         telError.textContent = "電話番号は10桁または11桁で入力してください。";
         telError.style.display = "block";
         event.preventDefault(); // フォーム送信を停止
@@ -144,8 +205,8 @@ $(function(){
     }
 
     // エラーメッセージが表示されていなければ、エラーメッセージを非表示にする
-    telError.style.display = "none";
-});
+    telError.style.display = "none"; 
+ });
  
 
 

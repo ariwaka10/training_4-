@@ -145,13 +145,16 @@ p span {
 
 .form{
     align-items: center;
-    margin:0 auto;
-    max-width: 400px;
+    margin: 10px auto;
+    max-width: 360px;
+
 }
 
 .submit{
     width: 100%;
-    padding: 3px 0px;
+    padding: 5px;
+    box-sizing: border-box;
+
 }
 
 .formsub{
@@ -193,8 +196,13 @@ nav {
     transition: .3s;
     list-style:none;
 
-
 }
+
+#header-menu a{
+    width: 100%;
+    display: block;
+}
+
 .header-menusub{
     padding: 8px;
     font-size: 16px;
@@ -203,7 +211,7 @@ nav {
     text-align: center;
     text-decoration: none;
     border-top: 1px solid white;
-
+    width: 100%;
 }
 .hamburger {
     position: absolute;
@@ -253,6 +261,19 @@ nav {
 .headerham{
     display: none;
 }
+
+.headerham.open {
+    display: block;
+}
+
+#header-menu.open {
+    height: auto; /* メニューが開いた時に高さを自動調整 */
+}
+
+.osibtn{
+    padding: 5px 0px 0px 0px;
+}
+
 
  .thank{
     font-size: 24px;
